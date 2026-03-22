@@ -6,7 +6,7 @@
 #import <string>
 
 using namespace std;
-
+//new 0x1051AAF78
 int get_Health(void *_this){
   int (*hp)(void *instance) = (int (*)(void *))getRealOffset(0x1030ACDDC);
   return hp(_this);
@@ -19,22 +19,22 @@ bool get_isLiving(void *_this){
 bool IsCharacterDead(void *_this){
     return get_Health(_this) < 1;
 }
-
+//new 0x103FF6CD4
 void *GetLocalPlayer() {
     void *(*local)() = (void *(*)())getRealOffset(0x1027EB588);
     return (void *)local();
 }
-
+//new 105FE8694
  Vector3 GetForward(void *player) {
     Vector3 (*_GetForward)(void *players) = (Vector3 (*)(void *))getRealOffset(0x1041610D0);
     return _GetForward(player);
 }
-
+//new 0x105F9CC54
 void *(*Component$$get_transform)(void *component) = (void *(*)(void *))getRealOffset(0x10411F080);
-void (*Transform$$get_position_Injected)(void *Transform, Vector3 *outPosition) = (void (*)(void *, Vector3 *))getRealOffset(0x104160870);
+void (*Transform$$get_position_Injected)(void *Transform, Vector3 *outPosition) = (void (*)(void *, Vector3 *))getRealOffset(0x104160870); //new 0x105FE7D14
 
 void *camera(){
-void *(*get_main)() = (void *(*)())getRealOffset(0x10411D678);
+void *(*get_main)() = (void *(*)())getRealOffset(0x10411D678); //new 105F9A79C
 return (void *) get_main();
 
 }
@@ -44,7 +44,7 @@ return (void *) get_main();
 Vector3 WorldToScreenPoint(void *cam, Vector3 test) {
 
 
-    Vector3 (*Camera$$WorldToViewport_Injected)(void *, Vector3, int) = (Vector3 (*)(void *,Vector3, int))getRealOffset(0x10411CDC4);
+    Vector3 (*Camera$$WorldToViewport_Injected)(void *, Vector3, int) = (Vector3 (*)(void *,Vector3, int))getRealOffset(0x10411CDC4); //new 0x105F99E98
     return Camera$$WorldToViewport_Injected(cam, test, 2);
 }
 
